@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 export const TrendMovies = ({ elems }) => {
   const location = useLocation();
   console.log(elems);
-  const imgUrl = 'https://image.tmdb.org/t/p/w300';
+  const imgUrl = 'https://image.tmdb.org/t/p/w200';
   return (
     <ol>
       {elems.map(element => (

@@ -47,3 +47,20 @@ export const fetchCreditsMovie = async id => {
     console.log(error);
   }
 };
+
+export const fetchReviewsMovie = async id => {
+  try {
+    const response = await axios.get(`movie/${id}/reviews?language=en-US`, {
+      headers: {
+        accept: 'application/json',
+        Authorization:
+          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YmUxYzljMDVlZjI5OWNjZmFiMWQ4YWQ3MjRmNzU2MSIsInN1YiI6IjY1Mzc4OTQ2MWY3NDhiMDBhZTEyZTE2ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.p_ieqSURgaK9kCC0WXwowgoFGd8OI5KgBv1Xli0uCL4',
+      },
+    });
+    console.log('Response:', response.data.results);
+
+    return response.data.results;
+  } catch (error) {
+    console.log(error);
+  }
+};

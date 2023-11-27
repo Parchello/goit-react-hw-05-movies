@@ -3,6 +3,7 @@ import HomePage from 'pages/HomePage';
 import { NavLink, Route, Routes } from 'react-router-dom';
 import MovieDetailPage from 'pages/MovieDetailPage';
 import Cast from './Cast/Cast';
+import Reviews from './Reviews/Reviews';
 
 export const App = () => {
   return (
@@ -22,7 +23,7 @@ export const App = () => {
         <Route path="movies" element={<MoviePage />} />
         <Route path="movies/:movieId" element={<MovieDetailPage />}>
           <Route path="casts" element={<Cast />} />
-          <Route path="reviews" element={<div>reviews</div>} />
+          <Route path="reviews" element={<Reviews />} />
         </Route>
       </Routes>
     </div>
