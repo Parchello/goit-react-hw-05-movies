@@ -20,7 +20,7 @@ export default function Cast() {
     };
     result();
     console.log(selectedCast);
-  }, [movieId]);
+  }, [movieId, selectedCast]);
 
   return (
     <div>
