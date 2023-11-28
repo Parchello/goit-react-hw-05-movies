@@ -1,13 +1,21 @@
+import { Suspense, useRef } from 'react';
 import { ProgressBar } from 'react-loader-spinner';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { StyledLink } from './SelectedMovie.styled';
 
 export default function SelectedMovie({ movie, genres }) {
+  const location = useLocation();
+  const backLinkLocation = useRef(location.state?.from ?? '/movies');
   const imgUrl = 'https://image.tmdb.org/t/p/w300';
   return (
     <div>
       {movie ? (
         <>
           <div>
+            <div>
+              <StyledLink to={backLinkLocation.current}>Go back</StyledLink>
+            </div>
+
             <img
               src={
                 movie.poster_path
@@ -15,6 +23,8 @@ export default function SelectedMovie({ movie, genres }) {
                   : 'https://www.shutterstock.com/image-vector/no-image-available-vector-illustration-260nw-744886198.jpg'
               }
               alt={movie.title}
+              width={300}
+              height={450}
             />
           </div>
           <div>
@@ -51,7 +61,9 @@ export default function SelectedMovie({ movie, genres }) {
           <NavLink to="reviews">revievs</NavLink>
         </li>
       </ul>
-      <Outlet />
+      <Suspense fallback={<div>Loading</div>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 }

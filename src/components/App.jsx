@@ -1,8 +1,9 @@
-import { NavLink, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Cast from './Cast/Cast';
 import Reviews from './Reviews/Reviews';
 import { Suspense, lazy } from 'react';
 import { MagnifyingGlass } from 'react-loader-spinner';
+import { StyledHeader, StyledLi, StyledNavLink, StyledUl } from './App.styled';
 
 const MoviePage = lazy(() => import('pages/MoviePage'));
 const HomePage = lazy(() => import('pages/HomePage'));
@@ -11,16 +12,16 @@ const MovieDetailPage = lazy(() => import('pages/MovieDetailPage'));
 export const App = () => {
   return (
     <div>
-      <header>
-        <ul>
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/movies">Movies</NavLink>
-          </li>
-        </ul>
-      </header>
+      <StyledHeader>
+        <StyledUl>
+          <StyledLi>
+            <StyledNavLink to="/">Home</StyledNavLink>
+          </StyledLi>
+          <StyledLi>
+            <StyledNavLink to="/movies">Movies</StyledNavLink>
+          </StyledLi>
+        </StyledUl>
+      </StyledHeader>
       <Suspense
         fallback={
           <MagnifyingGlass
