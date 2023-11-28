@@ -19,7 +19,6 @@ export default function Cast() {
       }
     };
     result();
-    console.log(selectedCast);
   }, [movieId, selectedCast]);
 
   return (
