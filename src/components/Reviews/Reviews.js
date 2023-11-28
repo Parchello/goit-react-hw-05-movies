@@ -33,7 +33,7 @@ export default function Reviews() {
           })}
         </ul>
       ) : (
-        <p>There is no review for this movie</p>
+        <p>There is no review for this movie yet</p>
       )}
     </div>
   );
