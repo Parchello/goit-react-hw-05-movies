@@ -9,10 +9,9 @@ export default function SearchBar({ onSubmit, inputData, onChange }) {
             name="search"
             value={inputData}
             onChange={onChange}
-            placeholder="Probably Comedy"
-            autoComplete="off"
+            placeholder="Enter name of movie here"
           />
-          <label htmlFor="movies">Enjoy</label>
+          <label htmlFor="movies"></label>
         </span>
         <button type="submit">Search</button>
       </form>

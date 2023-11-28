@@ -3,6 +3,7 @@ import MovieSearchList from 'components/MovieSearchList/MovieSearchList';
 import SearchBar from 'components/SearchBar/SearchBar';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function MoviePage() {
   const [queryResult, setQueryResult] = useState([]);
@@ -31,7 +32,7 @@ export default function MoviePage() {
     e.preventDefault();
 
     if (query === '') {
-      return alert('Sorry, please provide a search word');
+      return toast.error('Please enter name of a movie');
     }
     setSearchParams({ searchQuery: query });
   };
@@ -48,6 +49,7 @@ export default function MoviePage() {
         onChange={handleInputChange}
       />
       <MovieSearchList items={queryResult} />
+      <Toaster />
     </div>
   );
 }

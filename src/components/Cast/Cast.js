@@ -31,11 +31,9 @@ export default function Cast() {
               <li key={credit_id}>
                 <img
                   src={
-                    profile_path ? (
-                      imgProfURL + profile_path
-                    ) : (
-                      <p>no actor image</p>
-                    )
+                    profile_path
+                      ? imgProfURL + profile_path
+                      : 'https://www.shutterstock.com/image-vector/no-image-available-vector-illustration-260nw-744886198.jpg'
                   }
                   alt={name}
                 />

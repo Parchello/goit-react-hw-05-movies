@@ -8,7 +8,14 @@ export default function SelectedMovie({ movie, genres }) {
       {movie ? (
         <>
           <div>
-            <img src={imgUrl + movie.poster_path} alt={movie.title} />
+            <img
+              src={
+                movie.poster_path
+                  ? imgUrl + movie.poster_path
+                  : 'https://www.shutterstock.com/image-vector/no-image-available-vector-illustration-260nw-744886198.jpg'
+              }
+              alt={movie.title}
+            />
           </div>
           <div>
             <h1>{movie.title}</h1>
