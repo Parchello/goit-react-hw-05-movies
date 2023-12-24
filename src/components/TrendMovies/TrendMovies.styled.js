@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const FilmList = styled.ul`
@@ -35,4 +36,12 @@ export const FilmName = styled.p`
   color: rgb(17, 17, 17);
   font-weight: 500;
   text-align: center;
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: #ffffff;
+  &:hover {
+    color: orange;
+  }
 `;

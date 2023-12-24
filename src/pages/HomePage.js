@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material';
 import { GetTrendingMovies } from 'api';
 import { TrendMovies } from 'components/TrendMovies/TrendMovies';
 import { useState, useEffect } from 'react';
@@ -19,8 +20,10 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div>
-      <h1>Trending Movies</h1>
+    <div style={{ textAlign: 'center' }}>
+      <Typography variant="h3" component="h1" color="orange">
+        Trending Movies
+      </Typography>
       <TrendMovies elems={filmList} />
     </div>
   );

@@ -4,6 +4,7 @@ import Reviews from './Reviews/Reviews';
 import { Suspense, lazy } from 'react';
 import { MagnifyingGlass } from 'react-loader-spinner';
 import { StyledHeader, StyledLi, StyledNavLink, StyledUl } from './App.styled';
+import GlobalStyles from 'GlobalStyles';
 
 const MoviePage = lazy(() => import('pages/MoviePage'));
 const HomePage = lazy(() => import('pages/HomePage'));
@@ -12,6 +13,7 @@ const MovieDetailPage = lazy(() => import('pages/MovieDetailPage'));
 export const App = () => {
   return (
     <div>
+      <GlobalStyles />
       <StyledHeader>
         <StyledUl>
           <StyledLi>
