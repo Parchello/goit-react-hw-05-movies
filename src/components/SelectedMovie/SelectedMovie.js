@@ -1,21 +1,37 @@
 import { Suspense, useRef } from 'react';
 import { ProgressBar } from 'react-loader-spinner';
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
-import { StyledLink } from './SelectedMovie.styled';
+import { Outlet, useLocation, Link as ButtonLink } from 'react-router-dom';
+import {
+  SpinnerContainer,
+  SelectedMovieContainer,
+  SelectedMovieDescrContainer,
+  SelectedMovieLinkList,
+  StyledNavLink,
+} from './SelectedMovie.styled';
+import { Button } from '@mui/material';
 
 export default function SelectedMovie({ movie, genres }) {
+  console.log(movie);
   const location = useLocation();
   const backLinkLocation = useRef(location.state?.from ?? '/movies');
   const imgUrl = 'https://image.tmdb.org/t/p/w300';
   return (
     <div>
       {movie ? (
-        <>
+        <SelectedMovieContainer>
           <div>
             <div>
-              <StyledLink to={backLinkLocation.current}>Go back</StyledLink>
+              <Button
+                component={ButtonLink}
+                to={backLinkLocation.current}
+                variant="outlined"
+                color="warning"
+                style={{ marginTop: '10px' }}
+              >
+                Go back
+              </Button>
             </div>
-
+            <h1>{movie.title}</h1>
             <img
               src={
                 movie.poster_path
@@ -27,10 +43,11 @@ export default function SelectedMovie({ movie, genres }) {
               height={450}
             />
           </div>
-          <div>
-            <h1>{movie.title}</h1>
-            <p>User score: {movie.vote_average}/10</p>
+          <SelectedMovieDescrContainer>
             <h2>Overview</h2>
+            <p>Relase date: {movie.release_date}</p>
+            <p>User score: {movie.vote_average}/10</p>
+
             <p>{movie.overview}</p>
             <h2>Genres</h2>
             <ul>
@@ -40,27 +57,29 @@ export default function SelectedMovie({ movie, genres }) {
                 </li>
               ))}
             </ul>
-          </div>
-        </>
+          </SelectedMovieDescrContainer>
+        </SelectedMovieContainer>
       ) : (
-        <ProgressBar
-          height="400"
-          width="400"
-          ariaLabel="progress-bar-loading"
-          wrapperStyle={{}}
-          wrapperClass="progress-bar-wrapper"
-          borderColor="#F4442E"
-          barColor="#51E5FF"
-        />
+        <SpinnerContainer>
+          <ProgressBar
+            height="400"
+            width="400"
+            ariaLabel="progress-bar-loading"
+            wrapperStyle={{}}
+            wrapperClass="progress-bar-wrapper"
+            borderColor="grey"
+            barColor="orange"
+          />
+        </SpinnerContainer>
       )}
-      <ul>
+      <SelectedMovieLinkList>
         <li>
-          <NavLink to="casts">cast</NavLink>
+          <StyledNavLink to="casts">Cast</StyledNavLink>
         </li>
         <li>
-          <NavLink to="reviews">revievs</NavLink>
+          <StyledNavLink to="reviews">Reviews</StyledNavLink>
         </li>
-      </ul>
+      </SelectedMovieLinkList>
       <Suspense fallback={<div>Loading</div>}>
         <Outlet />
       </Suspense>

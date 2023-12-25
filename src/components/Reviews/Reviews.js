@@ -1,3 +1,4 @@
+import { Card, CardContent, Typography } from '@mui/material';
 import { fetchReviewsMovie } from 'api';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -25,10 +26,19 @@ export default function Reviews() {
         <ul>
           {reviewList.map(part => {
             return (
-              <li key={part.id}>
-                <h3>{part.author}</h3>
-                <p>{part.content}</p>
-              </li>
+              <Card
+                key={part.id}
+                sx={{ marginBottom: '16px', marginRight: '40px' }}
+              >
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {part.author}
+                  </Typography>
+                  <Typography gutterBottom variant="body2" component="div">
+                    {part.content}
+                  </Typography>
+                </CardContent>
+              </Card>
             );
           })}
         </ul>

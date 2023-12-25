@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { fetchCreditsMovie } from 'api';
+import { Card, CardContent, List, Typography } from '@mui/material';
 
 const imgProfURL = 'https://image.tmdb.org/t/p/w200';
 
@@ -24,11 +25,18 @@ export default function Cast() {
   return (
     <div>
       {selectedCast ? (
-        <ul>
+        <List
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
           {selectedCast.map(card => {
             const { character, name, profile_path, credit_id } = card;
             return (
-              <li key={credit_id}>
+              <Card key={credit_id} sx={{ width: 250, margin: 2 }}>
                 <img
                   src={
                     profile_path
@@ -36,13 +44,22 @@ export default function Cast() {
                       : 'https://www.shutterstock.com/image-vector/no-image-available-vector-illustration-260nw-744886198.jpg'
                   }
                   alt={name}
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    objectFit: 'cover',
+                  }} // Задайте розміри та обмежте розмір
                 />
-                <p>{name}</p>
-                <p>Character: {character}</p>
-              </li>
+                <CardContent>
+                  <Typography variant="h6" noWrap>
+                    {name}
+                  </Typography>
+                  <Typography noWrap>{`Character: ${character}`}</Typography>
+                </CardContent>
+              </Card>
             );
           })}
-        </ul>
+        </List>
       ) : (
         <h1>Loading...</h1>
       )}

@@ -28,13 +28,13 @@ export const App = () => {
         fallback={
           <MagnifyingGlass
             visible={true}
-            height="80"
-            width="80"
+            height="800"
+            width="800"
             ariaLabel="MagnifyingGlass-loading"
             wrapperStyle={{}}
             wrapperClass="MagnifyingGlass-wrapper"
-            glassColor="#c0efff"
-            color="#e15b64"
+            glassColor="grey"
+            color="orange"
           />
         }
       >
