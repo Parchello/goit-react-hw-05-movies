@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-
+import bgi from './sj-objio-XFWiZTa2Ub0-unsplash.jpg';
 const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
@@ -7,6 +7,8 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Arial', sans-serif;
     /* Додайте інші глобальні стилі тут */
     background-color: lightgrey;
+    background-image: url(${bgi});
+    background-size: cover;
   }
 `;
 

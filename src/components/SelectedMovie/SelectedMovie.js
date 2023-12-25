@@ -11,7 +11,6 @@ import {
 import { Button } from '@mui/material';
 
 export default function SelectedMovie({ movie, genres }) {
-  console.log(movie);
   const location = useLocation();
   const backLinkLocation = useRef(location.state?.from ?? '/movies');
   const imgUrl = 'https://image.tmdb.org/t/p/w300';
@@ -25,7 +24,6 @@ export default function SelectedMovie({ movie, genres }) {
                 component={ButtonLink}
                 to={backLinkLocation.current}
                 variant="outlined"
-                color="warning"
                 style={{ marginTop: '10px' }}
               >
                 Go back

@@ -28,7 +28,7 @@ export const SelectedMovieLinkList = styled.ul`
 
 export const StyledNavLink = styled(NavLink)`
   text-decoration: none;
-  color: darkgray;
+  color: navy;
 
   &:hover {
     color: orange;
