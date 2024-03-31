@@ -48,7 +48,7 @@ export default function Cast() {
                     width: '100%',
                     height: 'auto',
                     objectFit: 'cover',
-                  }} // Задайте розміри та обмежте розмір
+                  }}
                 />
                 <CardContent>
                   <Typography variant="h6" noWrap>

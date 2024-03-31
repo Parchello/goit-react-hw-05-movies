@@ -24,7 +24,11 @@ export default function SelectedMovie({ movie, genres }) {
                 component={ButtonLink}
                 to={backLinkLocation.current}
                 variant="outlined"
-                style={{ marginTop: '10px' }}
+                style={{
+                  marginTop: '10px',
+                  color: 'black',
+                  borderColor: 'black',
+                }}
               >
                 Go back
               </Button>
